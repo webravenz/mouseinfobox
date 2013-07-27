@@ -1,0 +1,70 @@
+/* 
+    Document   : style
+    Created on : 19 août 2011, 21:19:41
+    Author     : Ravenz
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+body {
+  background: #222;
+  font-family: Arial, Helvetica, "sans serif";
+}
+
+#content {
+  background: #555;
+  width: 600px;
+  margin: 0px auto;
+}
+
+p {
+  color: #FFF;
+  line-height: 1.4;
+  padding: 20px;
+}
+
+.options {
+  font-size: 12px;
+}
+
+.value {
+  color: #99C;
+  padding: 0 10px;
+}
+.desc {
+  color: #9C9;
+}
+
+.back {
+  color: #CCC;
+}
+
+.download {
+  display: block;
+  background: #888;
+  border-radius: 10px;
+  padding: 10px 20px;
+  width: 90px;
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 0px auto;
+}
+
+#element0, #element1, #element2, #element3, #element4, #element5, #element6 ,#element7 {
+  margin: 30px;
+  padding: 20px;
+  width: 200px;
+  background: #333;
+  float: left;
+  color: #CCC;
+}
+
+input {
+  margin-left: 50px;
+  background: #333;
+  color: #FFF;
+  border: 1px solid #999;
+  padding: 4px;
+  margin-bottom: 20px;
+}

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mouseinfobox plugin for jQuery</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery.mouseinfobox.css" />
+    <script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery.mouseinfobox.js"></script>
+    
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-3888005-6']);
+  _gaq.push(['_setDomainName', '.cmegnin.fr']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  </head>
+  <body>
+    <div id="content">
+      
+      <p><a class="back" href="http://portfolio.cmegnin.fr">Back to my Portfolio</a></p>
+      
+      <p>With mouseinfobox plugin for jQuery, you can easily create tooltips on your websites, and customize it.</p>
+      
+      <a class="download" href="jquery.mouseinfobox.zip">Download</a>
+      
+      <p class="options">
+        Available options : <br />
+        name <span class="value">default value</span> <span class="desc">// description</span><br /><br />
+        offsetX 
+        <span class="value">20</span>
+        <span class="desc">// x position relative to the mouse</span>
+        <br />
+        
+        offsetY 
+        <span class="value">20 </span>
+        <span class="desc">// y position relative to the mouse</span>
+        <br />
+        
+        useMouse 
+        <span class="value">true </span>
+        <span class="desc">// true to follow the mouse, false to stay static (placed relative to the element)</span>
+        <br />
+        
+        content 
+        <span class="value">'' </span>
+        <span class="desc">// content of the tooltip, if empty the plugin take the title attribute content</span>
+        <br />
+        
+        boxClass 
+        <span class="value">'' </span>
+        <span class="desc">// to put a specific class attribute to the tooltip</span>
+        <br />
+        
+        animation 
+        <span class="value">[] </span>
+        <span class="desc">// animate the tooltip (see examples below), available : opacity, top, bottom, left, right</span>
+        <br />
+        
+        animDuration 
+        <span class="value">200 </span>
+        <span class="desc">// duration of the animation (in ms)</span>
+        <br />
+        
+        ajaxURL 
+        <span class="value">'' </span>
+        <span class="desc">// if you want to load content with ajax, put your URL</span>
+        <br />
+        
+        ajaxType 
+        <span class="value">'POST' </span>
+        <span class="desc">// type of the ajax data (POST or GET) </span>
+        <br />
+        
+        ajaxData 
+        <span class="value">'' </span>
+        <span class="desc">// ajax data (string or object)</span>
+        <br />
+        
+        ajaxReload 
+        <span class="value">false </span>
+        <span class="desc">// if true, ajax request will be send each time the tooltip is opened</span>
+        <br />
+        
+        ajaxLoadContent 
+        <span class="value">'Loading ...' </span>
+        <span class="desc">// text to display when ajax request is loading</span>
+        <br />
+        
+        bottomPos 
+        <span class="value">false </span>
+        <span class="desc">// y position is set relative to the bottom of the tooltip</span>
+        <br />
+        
+        rightPos 
+        <span class="value">false </span>
+        <span class="desc">// x position is set relative to the right of the tooltip</span>
+      </p>
+      
+      <p>Demos</p>
+      
+      <div id="element0" title="Basic hint">Basic, using attribute title</div>
+      <div id="element1">content option</div>
+      <div id="element2">Animation</div>
+      <div id="element6" title="This hint is fixed">Don't use mouse position</div>
+      <div id="element7" title="displayed at top of the mouse">bottomPos property</div>
+      <div id="element3">Ajax content</div>
+      <div id="element4">Ajax content Reloading</div>
+      <div style="clear: both;"></div>
+      <div id="element5">Ajax with data</div>
+      <div style="clear: both;"></div>
+      <input id="name" value="Your name" />
+    </div>
+    
+    <script type="text/javascript">
+      $('#element0').infoBox();
+      $('#element1').infoBox({
+        content: "content value"
+      });
+      $('#element2').infoBox({
+        content: "opacity bottom animation",
+        animation: ['opacity', 'bottom']
+      });
+      $('#element3').infoBox({
+        animation: ['opacity', 'right'],
+        ajaxURL: 'ajax.php'
+      });
+      $('#element4').infoBox({
+        animation: ['opacity', 'bottom'],
+        ajaxURL: 'ajax.php',
+        ajaxReload: true
+      });
+      $('#element5').infoBox({
+        animation: ['opacity', 'bottom'],
+        ajaxURL: 'ajax.php',
+        ajaxReload: true,
+        ajaxData: {'name': $('#name').val()}
+      });
+      $('#name').keyup(function() {
+        $('#element5').data('InfoBox').setAjaxData({
+          'name': $('#name').val()
+        })
+      });
+      
+      $('#element6').infoBox({
+        animation: ['opacity', 'bottom'],
+        useMouse: false,
+        offsetX: 250,
+        offsetY: 0
+      });
+      
+      $('#element7').infoBox({
+        animation: ['opacity', 'bottom'],
+        offsetX: 20,
+        offsetY: -20,
+        bottomPos: true
+      });
+    </script>
+  </body>
+  
+</html>
